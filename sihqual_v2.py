@@ -12,6 +12,7 @@ import geopandas as gpd
 import streamlit as st
 import time
 import matplotlib.pyplot as plt
+import openpyxl
 
 st.set_page_config(page_title='Metais no Rio Parauapebas',page_icon=' ', layout='wide')
 
