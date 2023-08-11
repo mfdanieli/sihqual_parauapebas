@@ -175,37 +175,37 @@ with tab2:
                 # Call the sihqual function with the selected period and metal number
                 result = sihqual(period, metal_number,factor_load)
 
-                # Display a progress bar
-                with st.spinner(f"Simulando {metal_name}..."):
-                    progress_bar = st.progress(0)
-                    for progress in range(101):
-                        time.sleep(elapsed_time / 100)  # Adjust sleep time to control the progress speed
-                        progress_bar.progress(progress)
 
-                # st.success(f"Simulation for {metal_name} completed!")
-
-                # st.write(f"Simulation Result for {metal_name}:")
-                df = pd.DataFrame(result)
-
-                # instante a imprimir
-                if period == 'Estiagem':
-                    instante_impressao = 25920
-                else:
-                    instante_impressao = 129600
-                df1 = df.iloc[int(instante_impressao),:]
-
-                # juntando o resultado com coord dos pontos
-                if period == 'Estiagem':
-                    df_coord = coord_seca
-                else:
-                    df_coord = coord_cheia.drop(coord_cheia.index[-1])
                 col1, col2 = st.columns([2, 1])
 
                 with col1:
                     st.markdown('##### ')
+                                    # Display a progress bar
+                    with st.spinner(f"Simulando {metal_name}..."):
+                        progress_bar = st.progress(0)
+                        for progress in range(101):
+                            time.sleep(elapsed_time / 100)  # Adjust sleep time to control the progress speed
+                            progress_bar.progress(progress)
+
+                    # st.success(f"Simulation for {metal_name} completed!")
+
+                    # st.write(f"Simulation Result for {metal_name}:")
+                    df = pd.DataFrame(result)
+
+                    # instante a imprimir
+                    if period == 'Estiagem':
+                        instante_impressao = 25920
+                    else:
+                        instante_impressao = 129600
+                    df1 = df.iloc[int(instante_impressao),:]
+
+                    # juntando o resultado com coord dos pontos
+                    if period == 'Estiagem':
+                        df_coord = coord_seca
+                    else:
+                        df_coord = coord_cheia.drop(coord_cheia.index[-1])
 
                 with col2:
-
 
                     fig, ax = plt.subplots(figsize=(2, 3))
                     scatter = ax.scatter(df_coord['X'], df_coord['Y'], c=df1, cmap='magma',s=3)
