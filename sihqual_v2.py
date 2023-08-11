@@ -139,7 +139,7 @@ with tab2:
                 'Titanio': 19,
             }
             
-            season_options = ['Estiagem','Chuvoso']
+            season_options = ['Estiagem']#,'Chuvoso']
 
             period = st.sidebar.selectbox('Selecione um período:', options=season_options)
                 
