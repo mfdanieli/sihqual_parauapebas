@@ -199,7 +199,7 @@ with tab2:
                     df_coord = coord_seca
                 else:
                     df_coord = coord_cheia.drop(coord_cheia.index[-1])
-                col1, col2 = st.columns([1, 2])
+                col1, col2 = st.columns([2, 1])
 
                 with col1:
                     st.markdown('##### ')
@@ -208,7 +208,7 @@ with tab2:
 
 
                     fig, ax = plt.subplots(figsize=(2, 3))
-                    scatter = ax.scatter(df_coord['X'], df_coord['Y'], c=df1, cmap='magma',s=5)
+                    scatter = ax.scatter(df_coord['X'], df_coord['Y'], c=df1, cmap='magma',s=3)
                     ax.set_xlabel('X')
                     ax.set_ylabel('Y')
                     plt.colorbar(scatter, ax=ax, label='Concentration (mg/L)')
