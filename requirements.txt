@@ -3,3 +3,4 @@ matplotlib==3.5.1
 numpy==1.25.0
 pandas==1.4.2
 streamlit==1.16.0
+openpyxl
