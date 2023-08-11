@@ -116,7 +116,7 @@ tab1,tab2 = st.tabs(['❗️Informações gerais','📊 Simulações'])
 with tab1: 
     with st.container(): 
         st.markdown('### Sobre a ferramenta:')
-        st.markdown('###### Nessa página é possível simular a distribuição de até 19 metais ao longo do Rio Parauapebas, PA. Ao usuário é permitido alterar por um fator a carga de metais que atinge o rio ao longo do seu curso, assim como escolher quais metais de interesse e o período de simulação (estiagem ou chuvoso) - note que a simulação do período chuvoso pode ser significativamente mais lenta, devido aos requerimentos da solução numérica.')
+        st.markdown('###### Nessa página é possível simular a distribuição de até 19 metais ao longo do Rio Parauapebas, PA. Ao usuário é permitido alterar por um fator a carga de metais que atinge o rio ao longo do seu curso, assim como escolher quais metais de interesse e o período de simulação (estiagem ou chuvoso).')
         st.markdown('###### O aplicativo é um protótipo com base em pesquisa  desenvolvida no Instituto Tecnológico Vale. Informações sobre os dados, modelagem e hipóteses do estudo podem ser encontrados em: ["Modeling transport and fate of metals for risk assessment in the Parauapebas river"](https://www.sciencedirect.com/science/article/abs/pii/S0195925523001750).')
         st.markdown('###### Contato para mais informações: danieli.ferreira@pq.itv.org')
 
