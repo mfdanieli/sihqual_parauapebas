@@ -38,7 +38,7 @@ def sihqual(period, metal,factor_load):
         dt = 10.
         dx = 30.
         J = 3582
-        N = 129601
+        N = 10001 #129601 rodo só até 10000, ao invés dos 15 dias!
         
     file_name = f'velocidade_1_{metal}.txt'
     file_path = os.path.join(folder_path, file_name)
@@ -48,9 +48,19 @@ def sihqual(period, metal,factor_load):
         velocidade = np.fromstring(velocidade, sep=' ')  # Convert to NumPy array
     file_name = f'contorno_1_{metal}.txt'
     file_path = os.path.join(folder_path, file_name)
+    # with open(file_path, 'r') as file:
+    #     contorno = file.read()
+    #     contorno = np.fromstring(contorno, sep=' ') 
+    target_row = N  # Set the target row you want to read until
+    contorno_data = ''
     with open(file_path, 'r') as file:
-        contorno = file.read()
-        contorno = np.fromstring(contorno, sep=' ') 
+        for _ in range(target_row):
+            line = file.readline()
+            if not line:
+                break  # Break if you've reached the end of the file
+            contorno_data += line  
+    contorno = np.fromstring(contorno_data, sep=' ')
+    
     file_name = f'carga_1_{metal}.txt'
     file_path = os.path.join(folder_path, file_name)
     with open(file_path, 'r') as file:
@@ -139,7 +149,7 @@ with tab2:
                 'Titanio': 19,
             }
             
-            season_options = ['Estiagem']#,'Chuvoso']
+            season_options = ['Estiagem','Chuvoso']
 
             period = st.sidebar.selectbox('Selecione um período:', options=season_options)
                 
@@ -196,7 +206,7 @@ with tab2:
                     if period == 'Estiagem':
                         instante_impressao = 25920
                     else:
-                        instante_impressao = 129600
+                        instante_impressao = 10000 #129600
                     df1 = df.iloc[int(instante_impressao),:]
 
                     # juntando o resultado com coord dos pontos
